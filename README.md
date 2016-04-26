@@ -3,7 +3,7 @@ This project includes some bash scripts to improve your terminal working efficie
 
 --
 ###Install <br/>
-It's recommended to clone this project to ~/bin/ and source source.sh in your .bashrc file. <br/>
+It's suggested to clone this project to ~/bin/ and source source.sh in your .bashrc file. <br/>
 However, you can customize the path as you wish. <br/>
 
 ```  
