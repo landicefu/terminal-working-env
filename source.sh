@@ -1,0 +1,1 @@
+source ~/bin/terminal-working-env/source_navigation.sh
