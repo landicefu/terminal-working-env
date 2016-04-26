@@ -15,17 +15,24 @@ Path Navigation Commands:
 
   After .filelist is created, you can use croot to change back to source root when you are in somewhere deep in your project folder
 
-- lsp <path_alias>
-- llp <path_alias>
-- ldp <path_alias>
+- lsp \<path_alias\>
+- llp \<path_alias\>
+- ldp \<path_alias\>
 
-  lsp saves current path to a environment variable with a path alias that you can load with llp
-  ldp deletes the path alias
-  "llp list" lists the current path aliases in the environment variable
-  "llp slist <list_name>" saves all path aliases to a file later you can load them back
-  "llp llist <list_name>" loads all path aliases back from a file you saved with "llp slist"
-  "llp dlist <list_name>" removes a saved path list file
-  "llp lslist" lists all the path list you can load with "llp llist"
+  lsp saves current path to a environment variable with a path alias that you can load with llp.
+
+  ldp deletes the path alias.
+
+  "llp list" lists the current path aliases in the environment variable.
+
+  "llp slist <list_name>" saves all path aliases to a file later you can load them back.
+  
+  "llp llist <list_name>" loads all path aliases back from a file you saved with "llp slist".
+  
+  "llp dlist <list_name>" removes a saved path list file.
+  
+  "llp lslist" lists all the path list you can load with "llp llist".
+
   
   Note that <list_name> is not a filename.
   It's just a short name you can easily remember.
