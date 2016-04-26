@@ -11,7 +11,7 @@ cd ~/bin
 git clone https://github.com/landicefu/terminal-working-env.git
 echo "source ~/bin/terminal-working-env/source.sh" >> ~/.bashrc
 ```
-Note that you have to restart your terminal before the commands can be used, or you can simply execute following command to load the command.
+Note that you have to restart your terminal before the commands can be used, or you can simply execute following command to reload the script.
 ```
 source ~/.bashrc
 ```
