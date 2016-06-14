@@ -23,7 +23,7 @@ function get_studio_package()
 	temp_path=$(pwd)
 	croot
 	cd app/src/
-	package_name=$(find . -name 'AndroidManifest.xml' | xargs grep package | sed -e 's/.*package=\"//' -e 's/\".*//')
+	package_name=$(find . -path ./androidTest -prune -o -name 'AndroidManifest.xml' -print | xargs grep package | sed -e 's/.*package=\"//' -e 's/\".*//')
 	cd "$temp_path"
 	echo $package_name
 }
