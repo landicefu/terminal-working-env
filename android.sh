@@ -6,7 +6,7 @@ function logcat_monitor()
 		if [[ $i == ${@: -1} ]]; then
 			adb shell logcat -v time
 		else
-			adb shell logcat -v time -s $1
+			adb shell logcat -v time -s $@
 		fi
 	done
 }
