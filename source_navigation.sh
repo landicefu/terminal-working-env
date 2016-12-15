@@ -54,8 +54,21 @@ function godir () {
 		return
 	fi
 
+	# Check if there is -ib option (ignores any path with /build/)
+	local if_ignore_build=0
+	for var in "$@"; do
+		if [ "$var" == "-ib" ]; then
+			if_ignore_build=1
+		fi
+	done
+
 	local lines
-	lines=($(\grep "$1" "$T/.filelist" | sed -e 's/\/[^/]*$//' | sort | uniq))
+	if [ $if_ignore_build -eq 1 ]; then
+		lines=($(\grep "$1" "$T/.filelist" | grep -v \/build\/ | sed -e 's/\/[^/]*$//' | sort | uniq))
+	else
+		lines=($(\grep "$1" "$T/.filelist" | sed -e 's/\/[^/]*$//' | sort | uniq))
+	fi
+
 	if [[ ${#lines[@]} = 0 ]]; then
 		echo "Not found"
 		return
@@ -71,7 +84,6 @@ function godir () {
 			if_list=1
 		fi        
 	done
-
 
 	if [[ ${#lines[@]} > 1 ]]; then
 		while [[ -z "$pathname" ]]; do
