@@ -9,11 +9,11 @@ However, you can customize the path as you wish. <br/>
 ```  
 cd ~/bin
 git clone https://github.com/landicefu/terminal-working-env.git
-echo "source ~/bin/terminal-working-env/source.sh" >> ~/.bashrc
+echo "source ~/bin/terminal-working-env/source.sh" >> ~/.bash_profile
 ```
 Note that you have to restart your terminal before the commands can be used, or you can simply execute following command to reload the script.
 ```
-source ~/.bashrc
+source ~/.bash_profile
 ```
 
 --
