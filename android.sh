@@ -90,6 +90,10 @@ function pull_apk() {
 	adb pull $(adb shell pm path $1 | sed -e 's/package://' -e $'s/\r//') $1_$version_name.apk
 }
 
+function pull_last_screenshot() {
+	adb pull "/sdcard/Pictures/Screenshots/$(adb shell ls /sdcard/Pictures/Screenshots/ | tail -n1 | sed -e $'s/\r//')"
+}
+
 function screen_keep_on() {
 	echo "Current screen off timeout is $(adb shell settings get system screen_off_timeout)"
 	echo "Set screen always on"
