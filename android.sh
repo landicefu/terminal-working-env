@@ -68,11 +68,16 @@ function adbs_select()
 
 }
 
-function signdebug()
+function signature_sign_debug()
 {
 	rm -f signed_$1
 
 	java -jar ~/bin/terminal-working-env/signkey/signapk.jar ~/bin/terminal-working-env/signkey/testkeys/platform.x509.pem ~/bin/terminal-working-env/signkey/testkeys/platform.pk8 "$1" "signed_$1"
+}
+
+function signature_show()
+{
+	keytool -list -printcert -jarfile $1 | grep SHA1 | sed -e 's/.*SHA1: //' | head -1
 }
 
 function adb_logcat()
