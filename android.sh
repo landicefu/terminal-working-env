@@ -127,3 +127,6 @@ function adb_get_version_name() {
 	adb shell pm dump $1 | sed -e '/Hidden system packages/,$ d' | grep versionName | sed -e 's/.*=//'
 }
 
+function open_app_setting() {
+	adb shell am start -a android.settings.APPLICATION_DETAILS_SETTINGS package:$1
+}
