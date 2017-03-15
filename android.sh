@@ -92,7 +92,9 @@ function stop_build() {
 
 function pull_apk() {
 	version_name=$(adb shell dumpsys package $1 | grep versionName | head -n 1 | awk -F '=' '{print $2}' | sed -e $'s/\r//')
-	adb pull $(adb shell pm path $1 | sed -e 's/package://' -e $'s/\r//') $1_$version_name.apk
+	adb shell rm /sdcard/.tmp.apk 2> /dev/null
+	adb shell cp $(adb shell pm path $1 | sed -e 's/package://' -e $'s/\r//') /sdcard/.tmp.apk
+	adb pull /sdcard/.tmp.apk $1_$version_name.apk
 }
 
 function pull_last_screenshot() {
