@@ -97,6 +97,17 @@ function pull_apk() {
 	adb pull /sdcard/.tmp.apk $1_$version_name.apk
 }
 
+function pull_apk_obb() {
+	pull_apk $1
+	mkdir -p Android/obb/
+	adb pull /sdcard/Android/obb/$1 Android/obb/
+}
+
+function install_apk_obb() {
+	adb install *.apk
+	adb push Android/obb/* /sdcard/Android/obb/
+}
+
 function pull_last_screenshot() {
 	adb pull "/sdcard/Pictures/Screenshots/$(adb shell ls /sdcard/Pictures/Screenshots/ | tail -n1 | sed -e $'s/\r//')"
 }
