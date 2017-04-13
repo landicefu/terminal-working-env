@@ -143,3 +143,12 @@ function adb_get_version_name() {
 function open_app_setting() {
 	adb shell am start -a android.settings.APPLICATION_DETAILS_SETTINGS package:$1
 }
+
+function package2pid() {
+	adb shell "ps" | grep $1 | awk '{print $2}'
+}
+
+function logcat_package() {
+	pid=`package2pid $1`
+	adb shell "logcat" | grep "\($pid\)"
+}
