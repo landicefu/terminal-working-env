@@ -152,3 +152,10 @@ function logcat_package() {
 	pid=`package2pid $1`
 	adb shell "logcat" | grep "\($pid\)"
 }
+
+function copy_last_screenshot() {
+	last_screenshot='/sdcard/Pictures/Screenshots/'`adb shell ls /sdcard/Pictures/Screenshots/ | tail -n1`
+	adb pull $last_screenshot .tmp_screenshot
+	impbcopy .tmp_screenshot
+	rm .tmp_screenshot
+}
