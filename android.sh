@@ -109,7 +109,13 @@ function install_apk_obb() {
 }
 
 function pull_last_screenshot() {
-	adb pull "/sdcard/Pictures/Screenshots/$(adb shell ls /sdcard/Pictures/Screenshots/ | tail -n1 | sed -e $'s/\r//')"
+	ls_new_dir=$(adb shell ls /sdcard/Pictures/Screenshots/ | grep "No such file or directory")
+	if [ -z "$ls_new_dir" ]; then
+    	screenshot_path="/sdcard/Pictures/Screenshots/"
+    else
+    	screenshot_path="/sdcard/Screenshots/"
+	fi
+	adb pull "$screenshot_path$(adb shell ls $screenshot_path | tail -n1 | sed -e $'s/\r//')"
 }
 
 function screen_keep_on() {
